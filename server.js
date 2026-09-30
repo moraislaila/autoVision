@@ -74,7 +74,7 @@ app.post("/api/interesses/:anuncioID", async (req, res) => {
 
     const { rows } = await pool.query(
         `SELECT COUNT(*)::int AS total FROM interesses
-        WHERE anuncios_id = $1 `,
+        WHERE anuncio_id = $1 `,
         [anuncioID]
     );
 
@@ -113,14 +113,18 @@ app.post('/api/mensagens/:anuncioId', async (req, res) => {
         return res
             .status(400)
             .json({ erro: 'Nome, contato e menssagem são obrigatórias' })
-})
 
- await pool.query(
+            await pool.query(
     `INSERT INTO mensagens (anuncio_id, cliente_nome, cliente_contato, mensagem)
     VALUES ($1, $2, $3, $4)`,
     [anunciosId, cliente_nome, cliente_contato, mensagem]
- )
+);
+
+res.json({ ok: true });
+})
+
 
 app.listen(3000, () =>
     console.log('servidor rodando em http://localhost:3000'),
 );
+
