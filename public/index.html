@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoVision</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header>
         <img id="fotoPerfil" class="avatar" src="./assets/logo.png" alt="Avatar">
@@ -12,7 +15,7 @@
             <span id="nomeUsuario"></span>
             <button id="btnVerPerfil" class="btn-preto">Ver perfil</button>
         </div>
-        
+
         <h1 class="empresa">AutoVision</h1>
         <button id="btnLogin" class="btn-preto">Entrar</button>
     </header>
@@ -54,7 +57,7 @@
     </dialog>
 
     <!-- menu lateral de perfil -->
-     <aside id="painelPerfil" class="painel-lateral oculto">
+    <aside id="painelPerfil" class="painel-lateral oculto">
         <div class="painel-topo">
             <button id="fecharPainel" class="btn-fechar">x</button>
         </div>
@@ -75,45 +78,58 @@
             </div>
             <div class="grupo-input">
                 <label for="campoPreco">Preço</label>
-                <input 
-                    type="number"
-                    name="preco" 
-                    id="campoPreco" 
-                    placeholder="ex.: R$ 79999.00"
-                    step="0.01"
-                >
+                <input type="number" name="preco" id="campoPreco" placeholder="ex.: R$ 79999.00" step="0.01">
                 <span id="erroPreco" class="msg-erro"></span>
             </div>
             <div class="grupo-input">
                 <label for="campoImagem">Foto do Veículo</label>
-                <input 
-                    id="campoImagem"
-                    type="file"
-                    name="imagem"
-                    accept=".jpg, .jpeg, .png, .gif, .webp"
-                >
+                <input id="campoImagem" type="file" name="imagem" accept=".jpg, .jpeg, .png, .gif, .webp">
                 <span id="erroImagem" class="msg-erro"></span>
             </div>
             <button type="submit" class="btn-preto">Cadastrar</button>
         </form>
 
-        <div id="listaAnunciosPerfil"></div>
-     </aside>
-     <!-- Modal de interesse (cliente sem ter feito login)-->
-      <dialog id="modalInteresse" class="overlay oculto">
-            <div class="modal">
-                <div class="modal-topo">
-                    <h2>Tenho Interesse</h2>
-                    <button id="fecharModalInteresse" class="btn-fechar">x</button>
-                </div>
-                <input type="text" id="interesseNome" placeholder="Seu nome">
-                <input type="text" id="interesseContato" placeholder="Telefone ou e-mail">
-                <span id="erroInteresse" class="erro"></span>
+        <div id="listaAnunciosPerfil">
+            <div class="item-perfil">
+                <span>Vectra 2000 - R$25000,00</span>
+                <img class="lixeira" src="assets/lixeira.svg" alt="">
+            </div>
+        </div>
+    </aside>
+    <!-- Modal de interesse (cliente sem ter feito login)-->
+    <dialog id="modalInteresse" class="overlay oculto">
+        <div class="modal">
+            <div class="modal-topo">
+                <h2>Tenho Interesse</h2>
+                <button id="fecharModalInteresse" class="btn-fechar">x</button>
+            </div>
+            <input type="text" id="interesseNome" placeholder="Seu nome">
+            <input type="text" id="interesseContato" placeholder="Telefone ou e-mail">
+            <span id="erroInteresse" class="erro"></span>
+            <div class="modal-botoes">
+                <button id="btnCancelarInteresse" class="btn-outline">Cancelar</button>
+                <button id="btnConfirmarInteresse" class="btn-preto">Confirmar</button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- feito na aula de hoje 08/10 -->
+    <dialog id="modalMensagem" class="overlay oculto">
+        <div class="modal"> 
+            <div class="modal-topo">
+                <h2>enviar Mensagem</h2>
+                <button id="fecharModalMensagem" class="btn-fechar">x</button>
+                <input type="text" id="mensagemNome" placeholder="Digite seu nome">
+                <input type="text" id="mensagemContato" placeholder="Digite telefone ou e-mail">
+                <textarea id="mensagemTexto" placeholder="Escreva sua mensagem"></textarea>
+                <span id="erroMensagem" class="erro"></span>
                 <div class="modal-botoes">
-                    <button id="btnCancelarInteresse" class="btn-outline">Cancelar</button>
-                    <button id="btnConfirmarInteresse" class="btn-preto">Confirmar</button>
+                    <button id="btnEnviarMensagem" class="btn-preto"> Enviar</button>
                 </div>
             </div>
-      </dialog>
+        </div>
+    </dialog>
+
 </body>
+
 </html>
